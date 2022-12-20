@@ -34,7 +34,9 @@ def get_file_details(file: str) -> File:
 
 
 def process_file(file: File) -> None:
-    if file['extension'] == "py" or file['original'] == "index.html":
+    if file['extension'] != "html":
+        return None
+    elif file['original'] == "index.html":
         return None
 
     destination_dir = current / file['directory'] / file['identifier']
